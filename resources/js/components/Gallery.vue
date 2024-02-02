@@ -14,7 +14,7 @@
         <div style="float:left; margin-right: 1em;">
           <component :is="singleComponent" class="mb-3 p-3 mr-3"
                      :key="index" :image="element" :field="field" :editable="editable" :removable="removable || editable" @remove="remove(index)"
-                     :is-custom-properties-editable="customProperties && customPropertiesFields.length > 0"
+                     :is-custom-properties-editable="customProperties && customPropertiesFields.length > 0" :custom-fields="customPropertiesFields"
                      @edit-custom-properties="customPropertiesImageIndex = index"
                      @crop-start="cropImageQueue.push($event)"
           />
@@ -22,6 +22,7 @@
           <CustomProperties
             v-if="customPropertiesImageIndex !== null"
             v-model="images[customPropertiesImageIndex]"
+            :parent-field="field"
             :fields="customPropertiesFields"
             @close="customPropertiesImageIndex = null"
           />

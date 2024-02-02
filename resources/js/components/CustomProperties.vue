@@ -2,6 +2,7 @@
   <transition name="fade">
     <CustomPropertiesModal
       :fields="filledFields"
+      :parent-field="parentField"
       @close="handleClose"
       @update="handleUpdate"
     />
@@ -25,6 +26,10 @@ export default {
       type: Array,
       required: true,
     },
+    parentField: {
+      type: Object,
+      required: true
+    }
   },
 
   components: {

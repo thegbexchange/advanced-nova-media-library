@@ -3,7 +3,7 @@
     <template #field>
       <div :class="{'px-8 pt-6': field.fullSize}">
         <gallery slot="value" ref="gallery" v-if="hasSetInitialValue"
-                 v-model="value" :editable="!field.readonly" :removable="field.removable" custom-properties :field="field" :multiple="field.multiple" :uploads-to-vapor="field.uploadsToVapor"
+                 v-model="value" :editable="!field.readonly" :removable="field.removable" custom-properties :field="currentField" :multiple="field.multiple" :uploads-to-vapor="field.uploadsToVapor"
                  :has-error="hasError" :first-error="firstError"/>
 
         <div v-if="field.existingMedia">
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import {FormField, HandlesValidationErrors} from 'laravel-nova';
+import {DependentFormField, HandlesValidationErrors} from 'laravel-nova';
 import Gallery from '../Gallery';
 import FullWidthField from '../FullWidthField';
 import ExistingMedia from '../ExistingMedia';
@@ -32,7 +32,7 @@ import objectToFormData from 'object-to-formdata';
 import get from 'lodash/get';
 
 export default {
-  mixins: [FormField, HandlesValidationErrors],
+  mixins: [DependentFormField, HandlesValidationErrors],
   components: {
     Gallery,
     FullWidthField,
