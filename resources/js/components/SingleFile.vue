@@ -61,7 +61,7 @@
           });
         }
 
-        if (showCustomProperties === true) {
+        if (showCustomProperties === true && this.isCustomPropertiesEditable) {
           this.$emit('edit-custom-properties');
         }
 
