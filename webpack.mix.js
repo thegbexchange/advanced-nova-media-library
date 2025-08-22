@@ -9,6 +9,9 @@ mix.setPublicPath('dist')
     },
     output: {
       uniqueName: 'vendor/package',
+    },
+    resolve: {
+      extensions: ['.*', '.wasm', '.mjs', '.js', '.jsx', '.json', '.vue'],
     }
   })
   .alias({
